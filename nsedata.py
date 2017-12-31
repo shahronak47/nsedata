@@ -1,6 +1,7 @@
 from nsetools import Nse
 import pdb
 import pandas as pd
+from email_file import email_main
 
 #path of the csv file
 CSV_FILE_PATH = "C:\\Users\\Ronak Shah\\Google Drive\\Documents\\Shares.csv"
@@ -26,4 +27,5 @@ if __name__ == '__main__' :
     #Add new columns to dataframe
     df['Current_price'] = current_data_list
     df['Profit'] = (df.Current_price * df.Quantity) - df.Amount
-    pdb.set_trace()
+    email_main(df)
+    #pdb.set_trace()
