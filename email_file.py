@@ -19,7 +19,6 @@ def sendEmail(content) :
     gmail_pwd = doc['gmail_password']
     To = doc['To']
     FROM = gmail_user
-    SUBJECT = "Today's rate comparison"
     data = content
     #Generate the html body for the email
     html = """
@@ -36,6 +35,7 @@ def sendEmail(content) :
     message = MIMEMultipart(
         "alternative", None, [MIMEText(html, 'html')])
     try :
+        message['Subject'] = "Today's rate comparison"
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.ehlo()
         server.starttls()

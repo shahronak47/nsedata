@@ -1,5 +1,4 @@
 from nsetools import Nse
-import pdb
 import pandas as pd
 from email_file import email_main
 
@@ -28,4 +27,3 @@ if __name__ == '__main__' :
     df['Current_price'] = current_data_list
     df['Profit'] = (df.Current_price * df.Quantity) - df.Amount
     email_main(df)
-    #pdb.set_trace()
